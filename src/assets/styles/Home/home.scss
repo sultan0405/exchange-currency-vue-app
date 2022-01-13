@@ -1,0 +1,198 @@
+@import "var";
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    &::before,
+    &::after{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; 
+    }
+}
+
+@mixin Object-fit($ob_ft) {
+    width: 100%;                        
+    height: 100%;
+    object-fit: $ob_ft;
+}
+nav,
+section{
+    width: calc(100% - 20px);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color:#e9d8a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} 
+
+.home_card{
+    box-shadow: 0 10px 20px 10px rgba(0, 0,0,0.2);
+    width:calc( 700px - 10px);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center ;
+    border-radius: 10px;
+    overflow: hidden;
+    header{
+        width:100%;
+        padding: 10px 0;
+        height: 80px;
+        margin: 0 auto;
+        background-color: $bg-color;
+        overflow-y: hidden;
+        .home_nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+                .nav_left{
+                    .logo_wrapper{
+                        width: auto;
+                        height: 60px;
+                        .logo{
+                            @include Object-fit(cover)
+                        }
+                    }
+                }
+                    .currency_list{
+                        width: auto;
+                        height: 40px;
+                        cursor:pointer;
+                        .currency_logo{
+                            @include Object-fit(contain)
+                        }
+                    
+                }
+            }
+        }
+        .exchange_calculator{
+            border-radius: 0 0 10px 10px ;
+            background-color: #ee9b00;
+            padding: 40px 0;
+            height: calc( 100% - 100px );
+            width:100%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .exchange_wrapper{
+                width: calc(100% - 1rem);
+                height: calc( 100% - 100px );
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            .exchange_wrapper_top{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: calc(60% - 1rem);
+                .exchange_selector_left{
+                    background: transparent;
+                    border: none;
+                    font-size: 2rem;
+                    color: #073b4c;
+                    font-weight: bold;
+                    outline: none;
+                    height: auto;
+                }
+                .replace_icon{
+                    .replace_wrapper{
+                        cursor: pointer;
+                        width: auto;
+                        height: 35px;
+                        background: transparent;
+                        border: none;
+                        img{
+                            @include Object-fit(cover)
+                        }
+                    }
+                }
+                .exchange_selector_right{
+                    border: none;
+                    outline: none;
+                    font-size: 2rem;
+                    color: #073b4c;
+                    font-weight: bold;
+                    background: transparent;
+                }
+            }
+            .exchange_wrapper_center{
+                margin-top: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: calc(60% + 1rem);  
+                .current_value_wrapper{
+                    width: 150px;
+                    height: 60px;
+                    .current_value_place{
+                        background-color: #073b4c;
+                        border-radius: 20px;
+                        width: 100%;
+                        height: 100%;
+                        padding: 0 15px;
+                        border: none;
+                        outline: none;
+                        font-size: 2rem;
+                        color: #fff;
+                        text-align: center;
+                    }
+                }
+                .equal_icon{
+                    position: relative;
+                    .equal_icon_wrapper{
+                        width: 20px;
+                        height: 3px;
+                        background-color:#333;
+                    }
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        width: 20px;
+                        height: 3px;
+                        background-color:#333;
+                        top: 8px;
+                        left: 0;
+                    }
+                }
+                .exchange_result{
+                    width: 150px;
+                    height: 60px;
+                    .exchange_result_place{
+                        background-color: #073b4c;
+                        border-radius: 20px;
+                        width: 100%;
+                        height: 100%;
+                        text-align: center;
+                        padding: 0 5px;
+                        border: none;
+                        outline: none;
+                        font-size: 2rem;
+                        color: #fff;
+                    }
+                }
+            }
+            .exchange_wrapper_bottom{
+                margin-top: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: calc(40% - 1rem);   
+                .exchange_default-value{
+                    font-size: 1.5rem;
+                    font-weight: bolder;
+                    color: #001219;
+                }
+            }
+        }
+    }
+}
